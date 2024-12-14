@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from .rated import (
+from ..._compat import cached_property
+from ..._resource import SyncAPIResource, AsyncAPIResource
+from .rated.rated import (
     RatedResource,
     AsyncRatedResource,
     RatedResourceWithRawResponse,
@@ -10,9 +12,6 @@ from .rated import (
     RatedResourceWithStreamingResponse,
     AsyncRatedResourceWithStreamingResponse,
 )
-from ..._compat import cached_property
-from ..._resource import SyncAPIResource, AsyncAPIResource
-from .rated.rated import RatedResource, AsyncRatedResource
 from .tv_episodes import (
     TvEpisodesResource,
     AsyncTvEpisodesResource,

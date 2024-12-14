@@ -36,14 +36,6 @@ from .credits import (
     CreditsResourceWithStreamingResponse,
     AsyncCreditsResourceWithStreamingResponse,
 )
-from .episodes import (
-    EpisodesResource,
-    AsyncEpisodesResource,
-    EpisodesResourceWithRawResponse,
-    AsyncEpisodesResourceWithRawResponse,
-    EpisodesResourceWithStreamingResponse,
-    AsyncEpisodesResourceWithStreamingResponse,
-)
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ...._utils import (
     maybe_transform,
@@ -99,7 +91,14 @@ from .aggregate_credits import (
     AggregateCreditsResourceWithStreamingResponse,
     AsyncAggregateCreditsResourceWithStreamingResponse,
 )
-from .episodes.episodes import EpisodesResource, AsyncEpisodesResource
+from .episodes.episodes import (
+    EpisodesResource,
+    AsyncEpisodesResource,
+    EpisodesResourceWithRawResponse,
+    AsyncEpisodesResourceWithRawResponse,
+    EpisodesResourceWithStreamingResponse,
+    AsyncEpisodesResourceWithStreamingResponse,
+)
 from ....types.tv.season_retrieve_response import SeasonRetrieveResponse
 
 __all__ = ["SeasonsResource", "AsyncSeasonsResource"]
