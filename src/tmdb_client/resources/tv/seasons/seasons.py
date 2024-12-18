@@ -36,14 +36,6 @@ from .credits import (
     CreditsResourceWithStreamingResponse,
     AsyncCreditsResourceWithStreamingResponse,
 )
-from .episodes import (
-    EpisodesResource,
-    AsyncEpisodesResource,
-    EpisodesResourceWithRawResponse,
-    AsyncEpisodesResourceWithRawResponse,
-    EpisodesResourceWithStreamingResponse,
-    AsyncEpisodesResourceWithStreamingResponse,
-)
 from ...._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ...._utils import (
     maybe_transform,
@@ -99,7 +91,14 @@ from .aggregate_credits import (
     AggregateCreditsResourceWithStreamingResponse,
     AsyncAggregateCreditsResourceWithStreamingResponse,
 )
-from .episodes.episodes import EpisodesResource, AsyncEpisodesResource
+from .episodes.episodes import (
+    EpisodesResource,
+    AsyncEpisodesResource,
+    EpisodesResourceWithRawResponse,
+    AsyncEpisodesResourceWithRawResponse,
+    EpisodesResourceWithStreamingResponse,
+    AsyncEpisodesResourceWithStreamingResponse,
+)
 from ....types.tv.season_retrieve_response import SeasonRetrieveResponse
 
 __all__ = ["SeasonsResource", "AsyncSeasonsResource"]
@@ -152,7 +151,7 @@ class SeasonsResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return SeasonsResourceWithRawResponse(self)
 
@@ -161,7 +160,7 @@ class SeasonsResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return SeasonsResourceWithStreamingResponse(self)
 
@@ -259,7 +258,7 @@ class AsyncSeasonsResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return AsyncSeasonsResourceWithRawResponse(self)
 
@@ -268,7 +267,7 @@ class AsyncSeasonsResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return AsyncSeasonsResourceWithStreamingResponse(self)
 
