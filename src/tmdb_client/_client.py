@@ -8,7 +8,7 @@ from typing_extensions import Self, override
 
 import httpx
 
-from . import resources, _exceptions
+from . import _exceptions
 from ._qs import Querystring
 from ._types import (
     NOT_GIVEN,
@@ -24,6 +24,20 @@ from ._utils import (
     get_async_library,
 )
 from ._version import __version__
+from .resources import (
+    find,
+    lists,
+    search,
+    credits,
+    reviews,
+    episodes,
+    trending,
+    tv_series,
+    discover_tv,
+    trending_movies,
+    trending_people,
+    trending_tv_shows,
+)
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import APIStatusError, TmdbClientError
 from ._base_client import (
@@ -31,13 +45,28 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
+from .resources.tv import tv
+from .resources.genres import genres
+from .resources.movies import movies
+from .resources.people import people
+from .resources.person import person
+from .resources.accounts import accounts
+from .resources.keywords import keywords
+from .resources.networks import networks
+from .resources.tv_shows import tv_shows
+from .resources.companies import companies
+from .resources.collections import collections
+from .resources.configuration import configuration
+from .resources.authentication import authentication
+from .resources.certifications import certifications
+from .resources.guest_sessions import guest_sessions
+from .resources.watch_providers import watch_providers
 
 __all__ = [
     "Timeout",
     "Transport",
     "ProxiesTypes",
     "RequestOptions",
-    "resources",
     "TmdbClient",
     "AsyncTmdbClient",
     "Client",
@@ -46,34 +75,34 @@ __all__ = [
 
 
 class TmdbClient(SyncAPIClient):
-    movies: resources.MoviesResource
-    tv: resources.TvResource
-    search: resources.SearchResource
-    people: resources.PeopleResource
-    configuration: resources.ConfigurationResource
-    discover_tv: resources.DiscoverTvResource
-    trending: resources.TrendingResource
-    trending_movies: resources.TrendingMoviesResource
-    trending_tv_shows: resources.TrendingTvShowsResource
-    episodes: resources.EpisodesResource
-    trending_people: resources.TrendingPeopleResource
-    authentication: resources.AuthenticationResource
-    find: resources.FindResource
-    tv_shows: resources.TvShowsResource
-    accounts: resources.AccountsResource
-    certifications: resources.CertificationsResource
-    collections: resources.CollectionsResource
-    companies: resources.CompaniesResource
-    credits: resources.CreditsResource
-    genres: resources.GenresResource
-    guest_sessions: resources.GuestSessionsResource
-    watch_providers: resources.WatchProvidersResource
-    keywords: resources.KeywordsResource
-    lists: resources.ListsResource
-    networks: resources.NetworksResource
-    reviews: resources.ReviewsResource
-    person: resources.PersonResource
-    tv_series: resources.TvSeriesResource
+    movies: movies.MoviesResource
+    tv: tv.TvResource
+    search: search.SearchResource
+    people: people.PeopleResource
+    configuration: configuration.ConfigurationResource
+    discover_tv: discover_tv.DiscoverTvResource
+    trending: trending.TrendingResource
+    trending_movies: trending_movies.TrendingMoviesResource
+    trending_tv_shows: trending_tv_shows.TrendingTvShowsResource
+    episodes: episodes.EpisodesResource
+    trending_people: trending_people.TrendingPeopleResource
+    authentication: authentication.AuthenticationResource
+    find: find.FindResource
+    tv_shows: tv_shows.TvShowsResource
+    accounts: accounts.AccountsResource
+    certifications: certifications.CertificationsResource
+    collections: collections.CollectionsResource
+    companies: companies.CompaniesResource
+    credits: credits.CreditsResource
+    genres: genres.GenresResource
+    guest_sessions: guest_sessions.GuestSessionsResource
+    watch_providers: watch_providers.WatchProvidersResource
+    keywords: keywords.KeywordsResource
+    lists: lists.ListsResource
+    networks: networks.NetworksResource
+    reviews: reviews.ReviewsResource
+    person: person.PersonResource
+    tv_series: tv_series.TvSeriesResource
     with_raw_response: TmdbClientWithRawResponse
     with_streaming_response: TmdbClientWithStreamedResponse
 
@@ -131,34 +160,34 @@ class TmdbClient(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.movies = resources.MoviesResource(self)
-        self.tv = resources.TvResource(self)
-        self.search = resources.SearchResource(self)
-        self.people = resources.PeopleResource(self)
-        self.configuration = resources.ConfigurationResource(self)
-        self.discover_tv = resources.DiscoverTvResource(self)
-        self.trending = resources.TrendingResource(self)
-        self.trending_movies = resources.TrendingMoviesResource(self)
-        self.trending_tv_shows = resources.TrendingTvShowsResource(self)
-        self.episodes = resources.EpisodesResource(self)
-        self.trending_people = resources.TrendingPeopleResource(self)
-        self.authentication = resources.AuthenticationResource(self)
-        self.find = resources.FindResource(self)
-        self.tv_shows = resources.TvShowsResource(self)
-        self.accounts = resources.AccountsResource(self)
-        self.certifications = resources.CertificationsResource(self)
-        self.collections = resources.CollectionsResource(self)
-        self.companies = resources.CompaniesResource(self)
-        self.credits = resources.CreditsResource(self)
-        self.genres = resources.GenresResource(self)
-        self.guest_sessions = resources.GuestSessionsResource(self)
-        self.watch_providers = resources.WatchProvidersResource(self)
-        self.keywords = resources.KeywordsResource(self)
-        self.lists = resources.ListsResource(self)
-        self.networks = resources.NetworksResource(self)
-        self.reviews = resources.ReviewsResource(self)
-        self.person = resources.PersonResource(self)
-        self.tv_series = resources.TvSeriesResource(self)
+        self.movies = movies.MoviesResource(self)
+        self.tv = tv.TvResource(self)
+        self.search = search.SearchResource(self)
+        self.people = people.PeopleResource(self)
+        self.configuration = configuration.ConfigurationResource(self)
+        self.discover_tv = discover_tv.DiscoverTvResource(self)
+        self.trending = trending.TrendingResource(self)
+        self.trending_movies = trending_movies.TrendingMoviesResource(self)
+        self.trending_tv_shows = trending_tv_shows.TrendingTvShowsResource(self)
+        self.episodes = episodes.EpisodesResource(self)
+        self.trending_people = trending_people.TrendingPeopleResource(self)
+        self.authentication = authentication.AuthenticationResource(self)
+        self.find = find.FindResource(self)
+        self.tv_shows = tv_shows.TvShowsResource(self)
+        self.accounts = accounts.AccountsResource(self)
+        self.certifications = certifications.CertificationsResource(self)
+        self.collections = collections.CollectionsResource(self)
+        self.companies = companies.CompaniesResource(self)
+        self.credits = credits.CreditsResource(self)
+        self.genres = genres.GenresResource(self)
+        self.guest_sessions = guest_sessions.GuestSessionsResource(self)
+        self.watch_providers = watch_providers.WatchProvidersResource(self)
+        self.keywords = keywords.KeywordsResource(self)
+        self.lists = lists.ListsResource(self)
+        self.networks = networks.NetworksResource(self)
+        self.reviews = reviews.ReviewsResource(self)
+        self.person = person.PersonResource(self)
+        self.tv_series = tv_series.TvSeriesResource(self)
         self.with_raw_response = TmdbClientWithRawResponse(self)
         self.with_streaming_response = TmdbClientWithStreamedResponse(self)
 
@@ -268,34 +297,34 @@ class TmdbClient(SyncAPIClient):
 
 
 class AsyncTmdbClient(AsyncAPIClient):
-    movies: resources.AsyncMoviesResource
-    tv: resources.AsyncTvResource
-    search: resources.AsyncSearchResource
-    people: resources.AsyncPeopleResource
-    configuration: resources.AsyncConfigurationResource
-    discover_tv: resources.AsyncDiscoverTvResource
-    trending: resources.AsyncTrendingResource
-    trending_movies: resources.AsyncTrendingMoviesResource
-    trending_tv_shows: resources.AsyncTrendingTvShowsResource
-    episodes: resources.AsyncEpisodesResource
-    trending_people: resources.AsyncTrendingPeopleResource
-    authentication: resources.AsyncAuthenticationResource
-    find: resources.AsyncFindResource
-    tv_shows: resources.AsyncTvShowsResource
-    accounts: resources.AsyncAccountsResource
-    certifications: resources.AsyncCertificationsResource
-    collections: resources.AsyncCollectionsResource
-    companies: resources.AsyncCompaniesResource
-    credits: resources.AsyncCreditsResource
-    genres: resources.AsyncGenresResource
-    guest_sessions: resources.AsyncGuestSessionsResource
-    watch_providers: resources.AsyncWatchProvidersResource
-    keywords: resources.AsyncKeywordsResource
-    lists: resources.AsyncListsResource
-    networks: resources.AsyncNetworksResource
-    reviews: resources.AsyncReviewsResource
-    person: resources.AsyncPersonResource
-    tv_series: resources.AsyncTvSeriesResource
+    movies: movies.AsyncMoviesResource
+    tv: tv.AsyncTvResource
+    search: search.AsyncSearchResource
+    people: people.AsyncPeopleResource
+    configuration: configuration.AsyncConfigurationResource
+    discover_tv: discover_tv.AsyncDiscoverTvResource
+    trending: trending.AsyncTrendingResource
+    trending_movies: trending_movies.AsyncTrendingMoviesResource
+    trending_tv_shows: trending_tv_shows.AsyncTrendingTvShowsResource
+    episodes: episodes.AsyncEpisodesResource
+    trending_people: trending_people.AsyncTrendingPeopleResource
+    authentication: authentication.AsyncAuthenticationResource
+    find: find.AsyncFindResource
+    tv_shows: tv_shows.AsyncTvShowsResource
+    accounts: accounts.AsyncAccountsResource
+    certifications: certifications.AsyncCertificationsResource
+    collections: collections.AsyncCollectionsResource
+    companies: companies.AsyncCompaniesResource
+    credits: credits.AsyncCreditsResource
+    genres: genres.AsyncGenresResource
+    guest_sessions: guest_sessions.AsyncGuestSessionsResource
+    watch_providers: watch_providers.AsyncWatchProvidersResource
+    keywords: keywords.AsyncKeywordsResource
+    lists: lists.AsyncListsResource
+    networks: networks.AsyncNetworksResource
+    reviews: reviews.AsyncReviewsResource
+    person: person.AsyncPersonResource
+    tv_series: tv_series.AsyncTvSeriesResource
     with_raw_response: AsyncTmdbClientWithRawResponse
     with_streaming_response: AsyncTmdbClientWithStreamedResponse
 
@@ -353,34 +382,34 @@ class AsyncTmdbClient(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.movies = resources.AsyncMoviesResource(self)
-        self.tv = resources.AsyncTvResource(self)
-        self.search = resources.AsyncSearchResource(self)
-        self.people = resources.AsyncPeopleResource(self)
-        self.configuration = resources.AsyncConfigurationResource(self)
-        self.discover_tv = resources.AsyncDiscoverTvResource(self)
-        self.trending = resources.AsyncTrendingResource(self)
-        self.trending_movies = resources.AsyncTrendingMoviesResource(self)
-        self.trending_tv_shows = resources.AsyncTrendingTvShowsResource(self)
-        self.episodes = resources.AsyncEpisodesResource(self)
-        self.trending_people = resources.AsyncTrendingPeopleResource(self)
-        self.authentication = resources.AsyncAuthenticationResource(self)
-        self.find = resources.AsyncFindResource(self)
-        self.tv_shows = resources.AsyncTvShowsResource(self)
-        self.accounts = resources.AsyncAccountsResource(self)
-        self.certifications = resources.AsyncCertificationsResource(self)
-        self.collections = resources.AsyncCollectionsResource(self)
-        self.companies = resources.AsyncCompaniesResource(self)
-        self.credits = resources.AsyncCreditsResource(self)
-        self.genres = resources.AsyncGenresResource(self)
-        self.guest_sessions = resources.AsyncGuestSessionsResource(self)
-        self.watch_providers = resources.AsyncWatchProvidersResource(self)
-        self.keywords = resources.AsyncKeywordsResource(self)
-        self.lists = resources.AsyncListsResource(self)
-        self.networks = resources.AsyncNetworksResource(self)
-        self.reviews = resources.AsyncReviewsResource(self)
-        self.person = resources.AsyncPersonResource(self)
-        self.tv_series = resources.AsyncTvSeriesResource(self)
+        self.movies = movies.AsyncMoviesResource(self)
+        self.tv = tv.AsyncTvResource(self)
+        self.search = search.AsyncSearchResource(self)
+        self.people = people.AsyncPeopleResource(self)
+        self.configuration = configuration.AsyncConfigurationResource(self)
+        self.discover_tv = discover_tv.AsyncDiscoverTvResource(self)
+        self.trending = trending.AsyncTrendingResource(self)
+        self.trending_movies = trending_movies.AsyncTrendingMoviesResource(self)
+        self.trending_tv_shows = trending_tv_shows.AsyncTrendingTvShowsResource(self)
+        self.episodes = episodes.AsyncEpisodesResource(self)
+        self.trending_people = trending_people.AsyncTrendingPeopleResource(self)
+        self.authentication = authentication.AsyncAuthenticationResource(self)
+        self.find = find.AsyncFindResource(self)
+        self.tv_shows = tv_shows.AsyncTvShowsResource(self)
+        self.accounts = accounts.AsyncAccountsResource(self)
+        self.certifications = certifications.AsyncCertificationsResource(self)
+        self.collections = collections.AsyncCollectionsResource(self)
+        self.companies = companies.AsyncCompaniesResource(self)
+        self.credits = credits.AsyncCreditsResource(self)
+        self.genres = genres.AsyncGenresResource(self)
+        self.guest_sessions = guest_sessions.AsyncGuestSessionsResource(self)
+        self.watch_providers = watch_providers.AsyncWatchProvidersResource(self)
+        self.keywords = keywords.AsyncKeywordsResource(self)
+        self.lists = lists.AsyncListsResource(self)
+        self.networks = networks.AsyncNetworksResource(self)
+        self.reviews = reviews.AsyncReviewsResource(self)
+        self.person = person.AsyncPersonResource(self)
+        self.tv_series = tv_series.AsyncTvSeriesResource(self)
         self.with_raw_response = AsyncTmdbClientWithRawResponse(self)
         self.with_streaming_response = AsyncTmdbClientWithStreamedResponse(self)
 
@@ -491,130 +520,134 @@ class AsyncTmdbClient(AsyncAPIClient):
 
 class TmdbClientWithRawResponse:
     def __init__(self, client: TmdbClient) -> None:
-        self.movies = resources.MoviesResourceWithRawResponse(client.movies)
-        self.tv = resources.TvResourceWithRawResponse(client.tv)
-        self.search = resources.SearchResourceWithRawResponse(client.search)
-        self.people = resources.PeopleResourceWithRawResponse(client.people)
-        self.configuration = resources.ConfigurationResourceWithRawResponse(client.configuration)
-        self.discover_tv = resources.DiscoverTvResourceWithRawResponse(client.discover_tv)
-        self.trending = resources.TrendingResourceWithRawResponse(client.trending)
-        self.trending_movies = resources.TrendingMoviesResourceWithRawResponse(client.trending_movies)
-        self.trending_tv_shows = resources.TrendingTvShowsResourceWithRawResponse(client.trending_tv_shows)
-        self.episodes = resources.EpisodesResourceWithRawResponse(client.episodes)
-        self.trending_people = resources.TrendingPeopleResourceWithRawResponse(client.trending_people)
-        self.authentication = resources.AuthenticationResourceWithRawResponse(client.authentication)
-        self.find = resources.FindResourceWithRawResponse(client.find)
-        self.tv_shows = resources.TvShowsResourceWithRawResponse(client.tv_shows)
-        self.accounts = resources.AccountsResourceWithRawResponse(client.accounts)
-        self.certifications = resources.CertificationsResourceWithRawResponse(client.certifications)
-        self.collections = resources.CollectionsResourceWithRawResponse(client.collections)
-        self.companies = resources.CompaniesResourceWithRawResponse(client.companies)
-        self.credits = resources.CreditsResourceWithRawResponse(client.credits)
-        self.genres = resources.GenresResourceWithRawResponse(client.genres)
-        self.guest_sessions = resources.GuestSessionsResourceWithRawResponse(client.guest_sessions)
-        self.watch_providers = resources.WatchProvidersResourceWithRawResponse(client.watch_providers)
-        self.keywords = resources.KeywordsResourceWithRawResponse(client.keywords)
-        self.lists = resources.ListsResourceWithRawResponse(client.lists)
-        self.networks = resources.NetworksResourceWithRawResponse(client.networks)
-        self.reviews = resources.ReviewsResourceWithRawResponse(client.reviews)
-        self.person = resources.PersonResourceWithRawResponse(client.person)
-        self.tv_series = resources.TvSeriesResourceWithRawResponse(client.tv_series)
+        self.movies = movies.MoviesResourceWithRawResponse(client.movies)
+        self.tv = tv.TvResourceWithRawResponse(client.tv)
+        self.search = search.SearchResourceWithRawResponse(client.search)
+        self.people = people.PeopleResourceWithRawResponse(client.people)
+        self.configuration = configuration.ConfigurationResourceWithRawResponse(client.configuration)
+        self.discover_tv = discover_tv.DiscoverTvResourceWithRawResponse(client.discover_tv)
+        self.trending = trending.TrendingResourceWithRawResponse(client.trending)
+        self.trending_movies = trending_movies.TrendingMoviesResourceWithRawResponse(client.trending_movies)
+        self.trending_tv_shows = trending_tv_shows.TrendingTvShowsResourceWithRawResponse(client.trending_tv_shows)
+        self.episodes = episodes.EpisodesResourceWithRawResponse(client.episodes)
+        self.trending_people = trending_people.TrendingPeopleResourceWithRawResponse(client.trending_people)
+        self.authentication = authentication.AuthenticationResourceWithRawResponse(client.authentication)
+        self.find = find.FindResourceWithRawResponse(client.find)
+        self.tv_shows = tv_shows.TvShowsResourceWithRawResponse(client.tv_shows)
+        self.accounts = accounts.AccountsResourceWithRawResponse(client.accounts)
+        self.certifications = certifications.CertificationsResourceWithRawResponse(client.certifications)
+        self.collections = collections.CollectionsResourceWithRawResponse(client.collections)
+        self.companies = companies.CompaniesResourceWithRawResponse(client.companies)
+        self.credits = credits.CreditsResourceWithRawResponse(client.credits)
+        self.genres = genres.GenresResourceWithRawResponse(client.genres)
+        self.guest_sessions = guest_sessions.GuestSessionsResourceWithRawResponse(client.guest_sessions)
+        self.watch_providers = watch_providers.WatchProvidersResourceWithRawResponse(client.watch_providers)
+        self.keywords = keywords.KeywordsResourceWithRawResponse(client.keywords)
+        self.lists = lists.ListsResourceWithRawResponse(client.lists)
+        self.networks = networks.NetworksResourceWithRawResponse(client.networks)
+        self.reviews = reviews.ReviewsResourceWithRawResponse(client.reviews)
+        self.person = person.PersonResourceWithRawResponse(client.person)
+        self.tv_series = tv_series.TvSeriesResourceWithRawResponse(client.tv_series)
 
 
 class AsyncTmdbClientWithRawResponse:
     def __init__(self, client: AsyncTmdbClient) -> None:
-        self.movies = resources.AsyncMoviesResourceWithRawResponse(client.movies)
-        self.tv = resources.AsyncTvResourceWithRawResponse(client.tv)
-        self.search = resources.AsyncSearchResourceWithRawResponse(client.search)
-        self.people = resources.AsyncPeopleResourceWithRawResponse(client.people)
-        self.configuration = resources.AsyncConfigurationResourceWithRawResponse(client.configuration)
-        self.discover_tv = resources.AsyncDiscoverTvResourceWithRawResponse(client.discover_tv)
-        self.trending = resources.AsyncTrendingResourceWithRawResponse(client.trending)
-        self.trending_movies = resources.AsyncTrendingMoviesResourceWithRawResponse(client.trending_movies)
-        self.trending_tv_shows = resources.AsyncTrendingTvShowsResourceWithRawResponse(client.trending_tv_shows)
-        self.episodes = resources.AsyncEpisodesResourceWithRawResponse(client.episodes)
-        self.trending_people = resources.AsyncTrendingPeopleResourceWithRawResponse(client.trending_people)
-        self.authentication = resources.AsyncAuthenticationResourceWithRawResponse(client.authentication)
-        self.find = resources.AsyncFindResourceWithRawResponse(client.find)
-        self.tv_shows = resources.AsyncTvShowsResourceWithRawResponse(client.tv_shows)
-        self.accounts = resources.AsyncAccountsResourceWithRawResponse(client.accounts)
-        self.certifications = resources.AsyncCertificationsResourceWithRawResponse(client.certifications)
-        self.collections = resources.AsyncCollectionsResourceWithRawResponse(client.collections)
-        self.companies = resources.AsyncCompaniesResourceWithRawResponse(client.companies)
-        self.credits = resources.AsyncCreditsResourceWithRawResponse(client.credits)
-        self.genres = resources.AsyncGenresResourceWithRawResponse(client.genres)
-        self.guest_sessions = resources.AsyncGuestSessionsResourceWithRawResponse(client.guest_sessions)
-        self.watch_providers = resources.AsyncWatchProvidersResourceWithRawResponse(client.watch_providers)
-        self.keywords = resources.AsyncKeywordsResourceWithRawResponse(client.keywords)
-        self.lists = resources.AsyncListsResourceWithRawResponse(client.lists)
-        self.networks = resources.AsyncNetworksResourceWithRawResponse(client.networks)
-        self.reviews = resources.AsyncReviewsResourceWithRawResponse(client.reviews)
-        self.person = resources.AsyncPersonResourceWithRawResponse(client.person)
-        self.tv_series = resources.AsyncTvSeriesResourceWithRawResponse(client.tv_series)
+        self.movies = movies.AsyncMoviesResourceWithRawResponse(client.movies)
+        self.tv = tv.AsyncTvResourceWithRawResponse(client.tv)
+        self.search = search.AsyncSearchResourceWithRawResponse(client.search)
+        self.people = people.AsyncPeopleResourceWithRawResponse(client.people)
+        self.configuration = configuration.AsyncConfigurationResourceWithRawResponse(client.configuration)
+        self.discover_tv = discover_tv.AsyncDiscoverTvResourceWithRawResponse(client.discover_tv)
+        self.trending = trending.AsyncTrendingResourceWithRawResponse(client.trending)
+        self.trending_movies = trending_movies.AsyncTrendingMoviesResourceWithRawResponse(client.trending_movies)
+        self.trending_tv_shows = trending_tv_shows.AsyncTrendingTvShowsResourceWithRawResponse(client.trending_tv_shows)
+        self.episodes = episodes.AsyncEpisodesResourceWithRawResponse(client.episodes)
+        self.trending_people = trending_people.AsyncTrendingPeopleResourceWithRawResponse(client.trending_people)
+        self.authentication = authentication.AsyncAuthenticationResourceWithRawResponse(client.authentication)
+        self.find = find.AsyncFindResourceWithRawResponse(client.find)
+        self.tv_shows = tv_shows.AsyncTvShowsResourceWithRawResponse(client.tv_shows)
+        self.accounts = accounts.AsyncAccountsResourceWithRawResponse(client.accounts)
+        self.certifications = certifications.AsyncCertificationsResourceWithRawResponse(client.certifications)
+        self.collections = collections.AsyncCollectionsResourceWithRawResponse(client.collections)
+        self.companies = companies.AsyncCompaniesResourceWithRawResponse(client.companies)
+        self.credits = credits.AsyncCreditsResourceWithRawResponse(client.credits)
+        self.genres = genres.AsyncGenresResourceWithRawResponse(client.genres)
+        self.guest_sessions = guest_sessions.AsyncGuestSessionsResourceWithRawResponse(client.guest_sessions)
+        self.watch_providers = watch_providers.AsyncWatchProvidersResourceWithRawResponse(client.watch_providers)
+        self.keywords = keywords.AsyncKeywordsResourceWithRawResponse(client.keywords)
+        self.lists = lists.AsyncListsResourceWithRawResponse(client.lists)
+        self.networks = networks.AsyncNetworksResourceWithRawResponse(client.networks)
+        self.reviews = reviews.AsyncReviewsResourceWithRawResponse(client.reviews)
+        self.person = person.AsyncPersonResourceWithRawResponse(client.person)
+        self.tv_series = tv_series.AsyncTvSeriesResourceWithRawResponse(client.tv_series)
 
 
 class TmdbClientWithStreamedResponse:
     def __init__(self, client: TmdbClient) -> None:
-        self.movies = resources.MoviesResourceWithStreamingResponse(client.movies)
-        self.tv = resources.TvResourceWithStreamingResponse(client.tv)
-        self.search = resources.SearchResourceWithStreamingResponse(client.search)
-        self.people = resources.PeopleResourceWithStreamingResponse(client.people)
-        self.configuration = resources.ConfigurationResourceWithStreamingResponse(client.configuration)
-        self.discover_tv = resources.DiscoverTvResourceWithStreamingResponse(client.discover_tv)
-        self.trending = resources.TrendingResourceWithStreamingResponse(client.trending)
-        self.trending_movies = resources.TrendingMoviesResourceWithStreamingResponse(client.trending_movies)
-        self.trending_tv_shows = resources.TrendingTvShowsResourceWithStreamingResponse(client.trending_tv_shows)
-        self.episodes = resources.EpisodesResourceWithStreamingResponse(client.episodes)
-        self.trending_people = resources.TrendingPeopleResourceWithStreamingResponse(client.trending_people)
-        self.authentication = resources.AuthenticationResourceWithStreamingResponse(client.authentication)
-        self.find = resources.FindResourceWithStreamingResponse(client.find)
-        self.tv_shows = resources.TvShowsResourceWithStreamingResponse(client.tv_shows)
-        self.accounts = resources.AccountsResourceWithStreamingResponse(client.accounts)
-        self.certifications = resources.CertificationsResourceWithStreamingResponse(client.certifications)
-        self.collections = resources.CollectionsResourceWithStreamingResponse(client.collections)
-        self.companies = resources.CompaniesResourceWithStreamingResponse(client.companies)
-        self.credits = resources.CreditsResourceWithStreamingResponse(client.credits)
-        self.genres = resources.GenresResourceWithStreamingResponse(client.genres)
-        self.guest_sessions = resources.GuestSessionsResourceWithStreamingResponse(client.guest_sessions)
-        self.watch_providers = resources.WatchProvidersResourceWithStreamingResponse(client.watch_providers)
-        self.keywords = resources.KeywordsResourceWithStreamingResponse(client.keywords)
-        self.lists = resources.ListsResourceWithStreamingResponse(client.lists)
-        self.networks = resources.NetworksResourceWithStreamingResponse(client.networks)
-        self.reviews = resources.ReviewsResourceWithStreamingResponse(client.reviews)
-        self.person = resources.PersonResourceWithStreamingResponse(client.person)
-        self.tv_series = resources.TvSeriesResourceWithStreamingResponse(client.tv_series)
+        self.movies = movies.MoviesResourceWithStreamingResponse(client.movies)
+        self.tv = tv.TvResourceWithStreamingResponse(client.tv)
+        self.search = search.SearchResourceWithStreamingResponse(client.search)
+        self.people = people.PeopleResourceWithStreamingResponse(client.people)
+        self.configuration = configuration.ConfigurationResourceWithStreamingResponse(client.configuration)
+        self.discover_tv = discover_tv.DiscoverTvResourceWithStreamingResponse(client.discover_tv)
+        self.trending = trending.TrendingResourceWithStreamingResponse(client.trending)
+        self.trending_movies = trending_movies.TrendingMoviesResourceWithStreamingResponse(client.trending_movies)
+        self.trending_tv_shows = trending_tv_shows.TrendingTvShowsResourceWithStreamingResponse(
+            client.trending_tv_shows
+        )
+        self.episodes = episodes.EpisodesResourceWithStreamingResponse(client.episodes)
+        self.trending_people = trending_people.TrendingPeopleResourceWithStreamingResponse(client.trending_people)
+        self.authentication = authentication.AuthenticationResourceWithStreamingResponse(client.authentication)
+        self.find = find.FindResourceWithStreamingResponse(client.find)
+        self.tv_shows = tv_shows.TvShowsResourceWithStreamingResponse(client.tv_shows)
+        self.accounts = accounts.AccountsResourceWithStreamingResponse(client.accounts)
+        self.certifications = certifications.CertificationsResourceWithStreamingResponse(client.certifications)
+        self.collections = collections.CollectionsResourceWithStreamingResponse(client.collections)
+        self.companies = companies.CompaniesResourceWithStreamingResponse(client.companies)
+        self.credits = credits.CreditsResourceWithStreamingResponse(client.credits)
+        self.genres = genres.GenresResourceWithStreamingResponse(client.genres)
+        self.guest_sessions = guest_sessions.GuestSessionsResourceWithStreamingResponse(client.guest_sessions)
+        self.watch_providers = watch_providers.WatchProvidersResourceWithStreamingResponse(client.watch_providers)
+        self.keywords = keywords.KeywordsResourceWithStreamingResponse(client.keywords)
+        self.lists = lists.ListsResourceWithStreamingResponse(client.lists)
+        self.networks = networks.NetworksResourceWithStreamingResponse(client.networks)
+        self.reviews = reviews.ReviewsResourceWithStreamingResponse(client.reviews)
+        self.person = person.PersonResourceWithStreamingResponse(client.person)
+        self.tv_series = tv_series.TvSeriesResourceWithStreamingResponse(client.tv_series)
 
 
 class AsyncTmdbClientWithStreamedResponse:
     def __init__(self, client: AsyncTmdbClient) -> None:
-        self.movies = resources.AsyncMoviesResourceWithStreamingResponse(client.movies)
-        self.tv = resources.AsyncTvResourceWithStreamingResponse(client.tv)
-        self.search = resources.AsyncSearchResourceWithStreamingResponse(client.search)
-        self.people = resources.AsyncPeopleResourceWithStreamingResponse(client.people)
-        self.configuration = resources.AsyncConfigurationResourceWithStreamingResponse(client.configuration)
-        self.discover_tv = resources.AsyncDiscoverTvResourceWithStreamingResponse(client.discover_tv)
-        self.trending = resources.AsyncTrendingResourceWithStreamingResponse(client.trending)
-        self.trending_movies = resources.AsyncTrendingMoviesResourceWithStreamingResponse(client.trending_movies)
-        self.trending_tv_shows = resources.AsyncTrendingTvShowsResourceWithStreamingResponse(client.trending_tv_shows)
-        self.episodes = resources.AsyncEpisodesResourceWithStreamingResponse(client.episodes)
-        self.trending_people = resources.AsyncTrendingPeopleResourceWithStreamingResponse(client.trending_people)
-        self.authentication = resources.AsyncAuthenticationResourceWithStreamingResponse(client.authentication)
-        self.find = resources.AsyncFindResourceWithStreamingResponse(client.find)
-        self.tv_shows = resources.AsyncTvShowsResourceWithStreamingResponse(client.tv_shows)
-        self.accounts = resources.AsyncAccountsResourceWithStreamingResponse(client.accounts)
-        self.certifications = resources.AsyncCertificationsResourceWithStreamingResponse(client.certifications)
-        self.collections = resources.AsyncCollectionsResourceWithStreamingResponse(client.collections)
-        self.companies = resources.AsyncCompaniesResourceWithStreamingResponse(client.companies)
-        self.credits = resources.AsyncCreditsResourceWithStreamingResponse(client.credits)
-        self.genres = resources.AsyncGenresResourceWithStreamingResponse(client.genres)
-        self.guest_sessions = resources.AsyncGuestSessionsResourceWithStreamingResponse(client.guest_sessions)
-        self.watch_providers = resources.AsyncWatchProvidersResourceWithStreamingResponse(client.watch_providers)
-        self.keywords = resources.AsyncKeywordsResourceWithStreamingResponse(client.keywords)
-        self.lists = resources.AsyncListsResourceWithStreamingResponse(client.lists)
-        self.networks = resources.AsyncNetworksResourceWithStreamingResponse(client.networks)
-        self.reviews = resources.AsyncReviewsResourceWithStreamingResponse(client.reviews)
-        self.person = resources.AsyncPersonResourceWithStreamingResponse(client.person)
-        self.tv_series = resources.AsyncTvSeriesResourceWithStreamingResponse(client.tv_series)
+        self.movies = movies.AsyncMoviesResourceWithStreamingResponse(client.movies)
+        self.tv = tv.AsyncTvResourceWithStreamingResponse(client.tv)
+        self.search = search.AsyncSearchResourceWithStreamingResponse(client.search)
+        self.people = people.AsyncPeopleResourceWithStreamingResponse(client.people)
+        self.configuration = configuration.AsyncConfigurationResourceWithStreamingResponse(client.configuration)
+        self.discover_tv = discover_tv.AsyncDiscoverTvResourceWithStreamingResponse(client.discover_tv)
+        self.trending = trending.AsyncTrendingResourceWithStreamingResponse(client.trending)
+        self.trending_movies = trending_movies.AsyncTrendingMoviesResourceWithStreamingResponse(client.trending_movies)
+        self.trending_tv_shows = trending_tv_shows.AsyncTrendingTvShowsResourceWithStreamingResponse(
+            client.trending_tv_shows
+        )
+        self.episodes = episodes.AsyncEpisodesResourceWithStreamingResponse(client.episodes)
+        self.trending_people = trending_people.AsyncTrendingPeopleResourceWithStreamingResponse(client.trending_people)
+        self.authentication = authentication.AsyncAuthenticationResourceWithStreamingResponse(client.authentication)
+        self.find = find.AsyncFindResourceWithStreamingResponse(client.find)
+        self.tv_shows = tv_shows.AsyncTvShowsResourceWithStreamingResponse(client.tv_shows)
+        self.accounts = accounts.AsyncAccountsResourceWithStreamingResponse(client.accounts)
+        self.certifications = certifications.AsyncCertificationsResourceWithStreamingResponse(client.certifications)
+        self.collections = collections.AsyncCollectionsResourceWithStreamingResponse(client.collections)
+        self.companies = companies.AsyncCompaniesResourceWithStreamingResponse(client.companies)
+        self.credits = credits.AsyncCreditsResourceWithStreamingResponse(client.credits)
+        self.genres = genres.AsyncGenresResourceWithStreamingResponse(client.genres)
+        self.guest_sessions = guest_sessions.AsyncGuestSessionsResourceWithStreamingResponse(client.guest_sessions)
+        self.watch_providers = watch_providers.AsyncWatchProvidersResourceWithStreamingResponse(client.watch_providers)
+        self.keywords = keywords.AsyncKeywordsResourceWithStreamingResponse(client.keywords)
+        self.lists = lists.AsyncListsResourceWithStreamingResponse(client.lists)
+        self.networks = networks.AsyncNetworksResourceWithStreamingResponse(client.networks)
+        self.reviews = reviews.AsyncReviewsResourceWithStreamingResponse(client.reviews)
+        self.person = person.AsyncPersonResourceWithStreamingResponse(client.person)
+        self.tv_series = tv_series.AsyncTvSeriesResourceWithStreamingResponse(client.tv_series)
 
 
 Client = TmdbClient

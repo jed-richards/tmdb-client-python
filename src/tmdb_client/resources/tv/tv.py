@@ -21,34 +21,10 @@ from .changes import (
     ChangesResourceWithStreamingResponse,
     AsyncChangesResourceWithStreamingResponse,
 )
-from .episode import (
-    EpisodeResource,
-    AsyncEpisodeResource,
-    EpisodeResourceWithRawResponse,
-    AsyncEpisodeResourceWithRawResponse,
-    EpisodeResourceWithStreamingResponse,
-    AsyncEpisodeResourceWithStreamingResponse,
-)
-from .seasons import (
-    SeasonsResource,
-    AsyncSeasonsResource,
-    SeasonsResourceWithRawResponse,
-    AsyncSeasonsResourceWithRawResponse,
-    SeasonsResourceWithStreamingResponse,
-    AsyncSeasonsResourceWithStreamingResponse,
-)
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._utils import (
     maybe_transform,
     async_maybe_transform,
-)
-from .episodes import (
-    EpisodesResource,
-    AsyncEpisodesResource,
-    EpisodesResourceWithRawResponse,
-    AsyncEpisodesResourceWithRawResponse,
-    EpisodesResourceWithStreamingResponse,
-    AsyncEpisodesResourceWithStreamingResponse,
 )
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
@@ -75,9 +51,30 @@ from .account_states import (
     AccountStatesResourceWithStreamingResponse,
     AsyncAccountStatesResourceWithStreamingResponse,
 )
-from .episode.episode import EpisodeResource, AsyncEpisodeResource
-from .seasons.seasons import SeasonsResource, AsyncSeasonsResource
-from .episodes.episodes import EpisodesResource, AsyncEpisodesResource
+from .episode.episode import (
+    EpisodeResource,
+    AsyncEpisodeResource,
+    EpisodeResourceWithRawResponse,
+    AsyncEpisodeResourceWithRawResponse,
+    EpisodeResourceWithStreamingResponse,
+    AsyncEpisodeResourceWithStreamingResponse,
+)
+from .seasons.seasons import (
+    SeasonsResource,
+    AsyncSeasonsResource,
+    SeasonsResourceWithRawResponse,
+    AsyncSeasonsResourceWithRawResponse,
+    SeasonsResourceWithStreamingResponse,
+    AsyncSeasonsResourceWithStreamingResponse,
+)
+from .episodes.episodes import (
+    EpisodesResource,
+    AsyncEpisodesResource,
+    EpisodesResourceWithRawResponse,
+    AsyncEpisodesResourceWithRawResponse,
+    EpisodesResourceWithStreamingResponse,
+    AsyncEpisodesResourceWithStreamingResponse,
+)
 from ...types.tv_search_response import TvSearchResponse
 from ...types.tv_retrieve_response import TvRetrieveResponse
 
@@ -119,7 +116,7 @@ class TvResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return TvResourceWithRawResponse(self)
 
@@ -128,7 +125,7 @@ class TvResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return TvResourceWithStreamingResponse(self)
 
@@ -269,7 +266,7 @@ class AsyncTvResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return AsyncTvResourceWithRawResponse(self)
 
@@ -278,7 +275,7 @@ class AsyncTvResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return AsyncTvResourceWithStreamingResponse(self)
 

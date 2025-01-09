@@ -12,27 +12,11 @@ from .lists import (
     ListsResourceWithStreamingResponse,
     AsyncListsResourceWithStreamingResponse,
 )
-from .rated import (
-    RatedResource,
-    AsyncRatedResource,
-    RatedResourceWithRawResponse,
-    AsyncRatedResourceWithRawResponse,
-    RatedResourceWithStreamingResponse,
-    AsyncRatedResourceWithStreamingResponse,
-)
 from ...types import account_retrieve_params
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
 from ..._utils import (
     maybe_transform,
     async_maybe_transform,
-)
-from .favorite import (
-    FavoriteResource,
-    AsyncFavoriteResource,
-    FavoriteResourceWithRawResponse,
-    AsyncFavoriteResourceWithRawResponse,
-    FavoriteResourceWithStreamingResponse,
-    AsyncFavoriteResourceWithStreamingResponse,
 )
 from ..._compat import cached_property
 from .watchlist import (
@@ -50,7 +34,14 @@ from ..._response import (
     async_to_raw_response_wrapper,
     async_to_streamed_response_wrapper,
 )
-from .rated.rated import RatedResource, AsyncRatedResource
+from .rated.rated import (
+    RatedResource,
+    AsyncRatedResource,
+    RatedResourceWithRawResponse,
+    AsyncRatedResourceWithRawResponse,
+    RatedResourceWithStreamingResponse,
+    AsyncRatedResourceWithStreamingResponse,
+)
 from .watchlist_tv import (
     WatchlistTvResource,
     AsyncWatchlistTvResource,
@@ -68,7 +59,14 @@ from .watchlist_movies import (
     WatchlistMoviesResourceWithStreamingResponse,
     AsyncWatchlistMoviesResourceWithStreamingResponse,
 )
-from .favorite.favorite import FavoriteResource, AsyncFavoriteResource
+from .favorite.favorite import (
+    FavoriteResource,
+    AsyncFavoriteResource,
+    FavoriteResourceWithRawResponse,
+    AsyncFavoriteResourceWithRawResponse,
+    FavoriteResourceWithStreamingResponse,
+    AsyncFavoriteResourceWithStreamingResponse,
+)
 from ...types.account_retrieve_response import AccountRetrieveResponse
 
 __all__ = ["AccountsResource", "AsyncAccountsResource"]
@@ -105,7 +103,7 @@ class AccountsResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return AccountsResourceWithRawResponse(self)
 
@@ -114,7 +112,7 @@ class AccountsResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return AccountsResourceWithStreamingResponse(self)
 
@@ -186,7 +184,7 @@ class AsyncAccountsResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return AsyncAccountsResourceWithRawResponse(self)
 
@@ -195,7 +193,7 @@ class AsyncAccountsResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return AsyncAccountsResourceWithStreamingResponse(self)
 

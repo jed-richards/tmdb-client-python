@@ -31,7 +31,7 @@ class CombinedCreditsResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return CombinedCreditsResourceWithRawResponse(self)
 
@@ -40,7 +40,7 @@ class CombinedCreditsResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return CombinedCreditsResourceWithStreamingResponse(self)
 
@@ -90,7 +90,7 @@ class AsyncCombinedCreditsResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return AsyncCombinedCreditsResourceWithRawResponse(self)
 
@@ -99,7 +99,7 @@ class AsyncCombinedCreditsResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return AsyncCombinedCreditsResourceWithStreamingResponse(self)
 

@@ -33,7 +33,7 @@ class TrendingMoviesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return TrendingMoviesResourceWithRawResponse(self)
 
@@ -42,7 +42,7 @@ class TrendingMoviesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return TrendingMoviesResourceWithStreamingResponse(self)
 
@@ -94,7 +94,7 @@ class AsyncTrendingMoviesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return the
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#accessing-raw-response-data-eg-headers
         """
         return AsyncTrendingMoviesResourceWithRawResponse(self)
 
@@ -103,7 +103,7 @@ class AsyncTrendingMoviesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/tmdb-client-python#with_streaming_response
+        For more information, see https://www.github.com/jed-richards/tmdb-client-python#with_streaming_response
         """
         return AsyncTrendingMoviesResourceWithStreamingResponse(self)
 
